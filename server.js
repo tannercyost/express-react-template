@@ -6,10 +6,8 @@ const app = express();
 const port = 3001;
 const environment = "production";
 
-console.log(process.env.NODE_ENV);
 app.get('/api/whoami', (req, res) => {
     // TODO: return something useful
-    console.log("/api/whoami request");
     res.json(
       [
         {"id":1,"username":"John Doe"},
@@ -21,12 +19,13 @@ app.get('/api/whoami', (req, res) => {
 /*
 If environment is not local (typically prod or test, on a server),
 then the server will serve up the contents of the build folder
+
+This needs to be the last route processed because it functions as a catch-all.
 */
 
 if (environment != "local") {
   app.use(express.static(path.join(__dirname, 'client/dist')));
   app.get('*', (req, res) => {
-    console.log("main")
     res.sendFile(path.join(__dirname + '/client/dist/index.html'));
   });
 }
