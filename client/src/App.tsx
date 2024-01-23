@@ -4,18 +4,20 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  type User = { 
+  type Item = { 
     id : number,
-    username : string 
+    title : string,
+    description : string,
+    completed : boolean
   }
 
   const [count, setCount] = useState(0)
-  const [users, setUsers] = useState<User[]>([]);
+  const [items, setItems] = useState<Item[]>([]);
   // useEffect is called twice in dev mode so that state update side effects are more obvious
   useEffect(() => {
-    fetch(`/api/whoami`)
+    fetch(`/api`)
       .then((res) => res.json())
-      .then((data) => setUsers(data));
+      .then((data) => setItems(data));
   }, []);
 
   return (
@@ -38,8 +40,8 @@ function App() {
         </p>
 
         <h1>Users</h1>
-        {users.map((user) => (
-          <p key={user.id}>{user.username}</p>
+        {items.map((item) => (
+          <p key={item.id}>{item.id} : {item.description}</p>
         ))}
         
       </div>

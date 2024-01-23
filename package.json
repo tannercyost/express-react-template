@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"nodemon server.js\" \"cd client && npm run dev\"",
+    "dev": "concurrently \"npx ts-node-dev server.ts\" \"cd client && npm run dev\"",
     "server": "nodemon server.js",
     "clientbuild": "cd client && npm run build"
   },
@@ -16,7 +16,11 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.5",
     "concurrently": "^8.2.2",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
   }
 }
