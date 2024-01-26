@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './styles/App.css'
+import Navbar from './components/navbar'
+
+type Item = { 
+  id : number,
+  title : string,
+  description : string,
+  completed : boolean
+}
 
 function App() {
-  type Item = { 
-    id : number,
-    title : string,
-    description : string,
-    completed : boolean
-  }
-
   const [count, setCount] = useState(0)
   const [items, setItems] = useState<Item[]>([]);
+  
   // useEffect is called twice in dev mode so that state update side effects are more obvious
   useEffect(() => {
     fetch(`/api`)
@@ -31,6 +33,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <Navbar />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
