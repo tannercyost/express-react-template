@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './styles/App.css'
 import Navbar from './components/navbar'
-import Items from './components/items'
+import Thing from './components/thing'
 
 type Item = { 
   id : number,
@@ -45,7 +45,7 @@ function App() {
 
         <h1>Users</h1>
         {items.map((item) => (
-          <Items items={item} />
+          <Thing items={item} count={count} />
         ))}
         
       </div>
