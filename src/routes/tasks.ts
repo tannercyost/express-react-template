@@ -5,7 +5,7 @@ const router = Router();
 
 /**
  * this stores "tasks" in memory; do not do this in production.
- * In production, Express should do CRUD operations on a database
+ * In production, Express should do CRUD operations on a database or another API
  */
 let tasks: Task[] = []; 
 

@@ -12,13 +12,11 @@ type Item = {
 function Items(props: { items: Item }) {
   // const [count, setCount] = useState(0)
   // const [items, setItems] = useState<Item[]>([]);
-  const things = props.items
+  const item = props.items
 
   return (
     <> 
-        {things.map((item) => (
-          <p key={item.id}>{item.id} : {item.description}</p>
-        ))}
+      <p key={item.id}>{item.id} : {item.description}</p>
     </>
   )
 }
